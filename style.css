@@ -107,3 +107,7 @@ h1 {
   z-index: 1;
   animation: shake 2s infinite ease-in-out;
 }
+
+[v-cloak] {
+  display: none;
+}
