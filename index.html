@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Present</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="vue-app">
+      <div class="container">
+        <button v-if="times > 0">盒子里面有什么 ?</button>
+        <img
+          @click="tap"
+          class="box"
+          :class="{shakeImage:shakeImageBoolean}"
+          @animationend="animationEnded"
+          v-if="times > 0"
+          src="resources/Box.png"
+          alt="box"
+        />
+
+        <div v-else-if="capybaraHi" class="message">
+          <h1>圣诞节 & 假期快乐 !!!</h1>
+          <img
+            class="christmasHat"
+            src="resources/christmas-hat.png"
+            alt="christmas hat"
+          />
+          <img
+            src="resources/Capybara-Hi.png"
+            class="CapybaraHi shakeImageLong"
+            alt="Capybara Hi"
+          />
+        </div>
+
+        <img
+          v-else-if="times ==0"
+          class="CapybaraSmile scaleAnimation"
+          @animationend="animationEnded"
+          src="resources/Capybara-Smile.png"
+          alt="Capybara Smile"
+        />
+
+        <button v-if="times == 3">按三次开箱</button>
+        <button v-else-if="times == 2">再按...</button>
+        <button v-else-if="times == 1">最后的一次</button>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script src="main.js"></script>
+</html>
